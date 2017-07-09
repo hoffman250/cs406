@@ -1,13 +1,10 @@
-from datetime import datetime
-from flask import render_template, session, redirect, url_for, current_app, flash
+from flask import render_template, session, redirect, url_for, flash
 from .. import db
 from . import main
-from ..decorators import admin_required, permission_required
-from .forms import NameForm, EditProfileForm, EditProfileAdminForm, PostForm
-from ..models import Role, User, Post
-from ..email import send_email
+from ..decorators import admin_required
+from .forms import EditProfileForm, EditProfileAdminForm, PostForm
+from ..models import Permission, Role, User, Post
 from flask_login import login_required, current_user
-from ..models import Permission
 
 @main.route('/', methods=['GET', 'POST'])
 def index():
@@ -28,17 +25,17 @@ def user(username):
 	posts = user.posts.order_by(Post.timestamp.desc()).all()
 	return render_template('user.html', user=user, posts=posts)
 
-@main.route('/admin')
-@login_required
-@admin_required
-def for_admins_only():
-	return "For administrators!"
+# @main.route('/admin')
+# @login_required
+# @admin_required
+# def for_admins_only():
+# 	return "For administrators!"
 
-@main.route('/moderator')
-@login_required
-@permission_required(Permission.MODERATE_COMMENTS)
-def for_moderators_only():
-	return "For comment moderators!"
+# @main.route('/moderator')
+# @login_required
+# @permission_required(Permission.MODERATE_COMMENTS)
+# def for_moderators_only():
+# 	return "For comment moderators!"
 
 @main.route('/edit-profile', methods=['GET', 'POST'])
 @login_required
@@ -76,7 +73,7 @@ def edit_profile_admin(id):
 	form.email.data = user.email
 	form.username.data = user.username
 	form.confirmed.data = user.confirmed
-	form.role.data = user.role
+	form.role.data = user.role_id
 	form.name.data = user.name
 	form.location.data = user.location
 	form.about_me.data = user.about_me
