@@ -1,4 +1,5 @@
-from flask import render_template, session, redirect, url_for, flash, request, current_app
+from flask import render_template, abort, redirect, url_for, flash, request, \
+	current_app, make_response
 from .. import db
 from . import main
 from ..decorators import admin_required, permission_required
@@ -22,7 +23,7 @@ def index():
 		query = current_user.followed_posts
 	else:
 		query = Post.query
-	pagination = Post.query.order_by(Post.timestamp.desc()).paginate(
+	pagination = query.order_by(Post.timestamp.desc()).paginate(
 		page, per_page=current_app.config['POSTS_PER_PAGE'], 
 		error_out=False)
 	posts = pagination.items
@@ -30,11 +31,13 @@ def index():
 
 @main.route('/user/<username>')
 def user(username):
-	user = User.query.filter_by(username=username).first()
-	if user is None:
-		abort(404)
-	posts = user.posts.order_by(Post.timestamp.desc()).all()
-	return render_template('user.html', user=user, posts=posts)
+	user = User.query.filter_by(username=username).first_or_404()
+	page = request.args.get('page', 1, type=int)
+	pagination = user.posts.order_by(Post.timestamp.desc()).paginate(
+		page, per_page=current_app.config['POSTS_PER_PAGE'],
+		error_out=False)
+	posts = pagination.items
+	return render_template('user.html', user=user, posts=posts, pagination=pagination)
 
 # @main.route('/admin')
 # @login_required
@@ -168,7 +171,7 @@ def followed_by(username):
 		error_out=False)
 	follows = [{'user': item.followed, 'timestamp': item.timestamp}
 				for item in pagination.items]
-	return render_template('follwers.html', user=user, title="Followed by",
+	return render_template('followers.html', user=user, title="Followed by",
 							endpoint='.followed_by', pagination=pagination,
 							follows=follows)
 

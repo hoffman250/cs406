@@ -51,7 +51,7 @@ class Role(db.Model):
 class Follow(db.Model):
 	__tablename__ = 'follows'
 	follower_id = db.Column(db.Integer, db.ForeignKey('users.id'), primary_key=True)
-	folowed_id = db.Column(db.Integer, db.ForeignKey('users.id'), primary_key=True)
+	followed_id = db.Column(db.Integer, db.ForeignKey('users.id'), primary_key=True)
 	timestamp = db.Column(db.DateTime, default=datetime.utcnow)
 
 class User(UserMixin, db.Model):
@@ -75,7 +75,7 @@ class User(UserMixin, db.Model):
 								lazy='dynamic',
 								cascade='all, delete-orphan')
 	followers = db.relationship('Follow', 
-								foreign_keys=[Follow.follower_id],
+								foreign_keys=[Follow.followed_id],
 								backref=db.backref('followed', lazy='joined'),
 								lazy='dynamic',
 								cascade='all, delete-orphan')
