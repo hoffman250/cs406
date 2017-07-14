@@ -12,3 +12,8 @@ def index():
 def about():
 	
 	return render_template('about.html')
+
+@main.route('/browse_bikes', methods=['GET', 'POST'])
+def browse_bikes():
+	
+	return render_template('browse_bikes.html')
