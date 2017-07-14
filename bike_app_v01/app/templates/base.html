@@ -1,0 +1,69 @@
+{% extends "bootstrap/base.html" %}
+
+{% block title %}BBDR{% endblock %}
+
+{% block head %}
+{{ super() }}
+<link rel="shortcut icon" href="{{ url_for('static', filename='favicon.ico') }}" type="image/x-icon">
+<link rel="icon" href="{{ url_for('static', filename='favicon.ico') }}" type="image/x-icon">
+<link rel="stylesheet" type="text/css" href="{{ url_for('static', filename='styles.css') }}">
+{% endblock %}
+
+{% block navbar %}
+<div class="navbar navbar-inverse" role="navigation">
+	<div class="container">
+		<div class="navbar-header">
+			<button type="button" class="navbar-toggle" data-toggle="collapse" data-target=".navbar-collapse">
+				<span class="sr-only">Toggle navigation</span>
+				<span class="icon-bar"></span>
+				<span class="icon-bar"></span>
+				<span class="icon-bar"></span>
+			</button>
+			<a class="navbar-brand" href="{{ url_for('main.index') }}">Bend Bike Demo Reservations</a>
+		</div>
+		<div class="navbar-collapse collapse">
+			<ul class="nav navbar-nav">
+				<li><a href="{{ url_for('main.index') }}">Home</a></li>
+				<li><a href="{{ url_for('main.index') }}">About</a></li>
+				<li><a href="{{ url_for('main.index') }}">Browse Bikes</a></li>
+				<li><a href="{{ url_for('main.index') }}">Participating Dealers</a></li>
+				<li><a href="{{ url_for('main.index') }}">FAQ</a></li>
+			</ul>
+			<ul class="nav navbar-nav navbar-right">
+				<li class="dropdown">
+					<a href="#" class="dropdown-toggle" data-toggle="dropdown">
+						<img src="{{url_for('static', filename='69_charger.jpeg')}}" style="width:50px;height:33px;">
+						Account <b class="caret"></b>
+					</a>
+					<ul class="dropdown-menu">
+                        <li><a href=>Change Password</a></li>
+                        <li><a href=>Change Email</a></li>
+                        <li><a href=>Log Out</a></li>
+                    </ul>
+				</li>
+			</ul>
+		</div>
+	</div>
+</div>
+{% endblock %}
+
+{% block content %}
+<div class="container">
+	{% for message in get_flashed_messages() %}
+	<div class="alert alert-warning">
+		<button type="button" class="close" data-dismiss="alert">&times;</button>
+		{{ message }}
+	</div>
+	{% endfor %}
+
+	{% block page_content %}{% endblock %}
+</div>
+<div>
+<img src="{{url_for('static', filename='santa_cruz.jpg')}}" style="width:512px;height:342px;"/>
+</div>
+{% endblock %}
+
+{% block scripts %}
+{{ super() }}
+{{ moment.include_moment() }}
+{% endblock %}
