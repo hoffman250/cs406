@@ -5,10 +5,31 @@
 
 {% block page_content %}
 <div class="page-header">
-	<h1>Hello Chumps!</h1>
+	<h1>What is Bend Bike Demo Reservations all about?</h1>
+	<h2>Let's talk about this awesome app</h2>
+</div>
+<div class="body">
+	<p>
+		What am I going to say here? I don't know? How about Marc should try listening to Opeth? Because everyone knows that progressive death metal is the best! My favorite album is Black Water Park. It is a mix of death metal, folk music, smooth jazz tones and is full of dynamics. Later albums from Opeth lost the death metal element (sadly) and went the direction of 70's progressive rock. I don't like it as much, but albums such as Heritage and Pale Communion appeal to a broader audience. 
+		<a href="https://www.youtube.com/watch?v=s_trbJ8T5lk">Opeth at Shepard's Bush, London</a>
+	</p>
+	<p>
+		If Opeth is too extreme, perhaps I could recommend something by the Devin Townsend Project. Devin is a freak, and something of a musical genius - singer, songwriter, guitarist, arranger and producer. Some good albums are Addicted, Epicloud, Sky Blue, and Transcendence. 
+		<a href="https://www.youtube.com/watch?v=1oJEBGHCdBQ">Check out Devin at the Royal Albert Hall, London</a>
+	</p>
+	<p>
+		Another great modern progressive rock artist is Steven Wilson. Formerly the frontman for Porcupine Tree, this Brit is an amazing musician. He draws from the greats of the late 60's and 70's (clearly a Beatles fan) the musicianship is top-notch. Try Hand Cannot Erase or The Raven that Refused to Sing. 
+		<a href="https://www.youtube.com/watch?v=ycYewhiaVBk">Click for a sample of Steven Wilson</a>
+	</p>
+	<p>
+		Did you know this was going to be a music review app as well as a bike app? It's fun playing with links and learning how this stuff works. This is obviously a placeholder to be updated with real content later.
+	</p>
+	
 </div>
 
 {% endblock %}
 
 {% block scripts %}
 {{ super() }}
+{{ pagedown.include_pagedown() }}
+{% endblock %}
