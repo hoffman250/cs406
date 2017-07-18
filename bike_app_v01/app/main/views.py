@@ -17,3 +17,9 @@ def about():
 def browse_bikes():
 	
 	return render_template('browse_bikes.html')
+
+
+@main.route('/participating_dealers', methods=['GET', 'POST'])
+def participating_dealers():
+	
+	return render_template('participating_dealers.html')

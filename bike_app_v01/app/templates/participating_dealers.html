@@ -1,0 +1,21 @@
+{% extends "base.html" %}
+{% import "bootstrap/wtf.html" as wtf %}
+
+{% block title %}BBDR{% endblock %}
+
+{% block page_content %}
+<div class="page-header">
+	<h1>Participating Dealers</h1>
+</div>
+<div class="body">
+	<h4><a href="https://hutchsbicycles.com/">Hutch's</a></h4>
+	<h4><a href="https://pinemountainsports.com/">Pine Mountain Sports</a></h4>
+	<h4><a href="https://www.sunnysidesports.com/">Sunnyside Sports</a></h4>
+</div>
+
+{% endblock %}
+
+{% block scripts %}
+{{ super() }}
+{{ pagedown.include_pagedown() }}
+{% endblock %}
