@@ -23,3 +23,8 @@ def browse_bikes():
 def participating_dealers():
 	
 	return render_template('participating_dealers.html')
+
+@main.route('/faq', methods=['GET', 'POST'])
+def faq():
+	
+	return render_template('faq.html')
