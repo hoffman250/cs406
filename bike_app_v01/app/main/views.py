@@ -1,7 +1,7 @@
 from flask import render_template, redirect, url_for, flash, request, \
 	current_app, make_response
 from . import main
-from .forms import PurchaseForm
+from .forms import PersonalForm
 
 @main.route('/', methods=['GET', 'POST'])
 def index():
@@ -26,5 +26,5 @@ def faq():
 
 @main.route('/purchase', methods=['GET', 'POST'])
 def purchase():
-	form = PurchaseForm()
+	form = PersonalForm()
 	return render_template('purchase.html', form=form)
