@@ -5,7 +5,7 @@
 
 {% block page_content %}
 <div class="page-header">
-	<h1>Confirm Order</h1>
+	<h1>Customer Information</h1>
 </div>
 <div class="col-md-4">
 	<legend>Personal Information</legend>
@@ -14,6 +14,18 @@
     {{ form.first_name }}</br>
     <br>{{ form.last_name.label }}
     {{ form.last_name }}</br>
+    <br>{{ form.email.label }}
+	{{ form.email }}</br>
+	<br>{{ form.phone.label }}
+    {{ form.phone }}</br>
+	<br>{{ form.address.label }}
+    {{ form.address }}</br>
+    <br>{{ form.city.label }}
+    {{ form.city }}</br>
+    <br>{{ form.state.label }}
+	{{ form.state }}</br>
+	<br>{{ form.zip_code.label }}
+    {{ form.zip_code }}</br>
 </div>
 <div class="col-md-4">
 	<legend>Rider Information</legend>
@@ -21,7 +33,17 @@
 	{{ form.height }}</br>
 	<br>{{ form.weight.label }}
     {{ form.weight }}</br>
+    <br>{{ form.skill_level.label }}
+	{{ form.skill_level }}</br>
+	<br>{{ form.style.label }}
+    {{ form.style }}</br>
+    <br>{{ form.gender.label }}
+	{{ form.gender }}</br>
+	<br>{{ form.dob.label }}
+    {{ form.dob }}</br>
 </div>
+<div class="col-md-4">
   {{ form.submit }}
+ </div>
 
 {% endblock %}

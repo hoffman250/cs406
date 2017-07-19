@@ -1,5 +1,6 @@
 from flask_wtf import FlaskForm
-from wtforms import StringField, SubmitField, TextAreaField, BooleanField, SelectField, IntegerField
+from wtforms import StringField, SubmitField, TextAreaField, BooleanField, SelectField, \
+	IntegerField, RadioField, DateTimeField
 from wtforms.validators import Required, Length, Email, Regexp, EqualTo
 from wtforms import ValidationError
 from wtforms.fields.html5 import TelField
@@ -24,3 +25,15 @@ class PersonalForm(FlaskForm):
       											])
 	weight = IntegerField('Weight')
 	submit = SubmitField('Purchase')
+	skill_level = SelectField('Skill Level', choices = [('nov', 'novice'), 
+      											('int', 'intermediate'),
+      											('adv', 'advanced'),
+      											('pro', 'professional')
+      											])
+	style = SelectField('Riding Style', choices = [('cruise', 'cruiser'),
+													('mtn', 'mountain bike'),
+													('cross', 'cycle cross'),
+													('street', 'street')
+													])
+	gender = RadioField('Gender', choices = [('M','Male'),('F','Female')])
+	dob = DateTimeField('Date of Birth', format='%m/%d/%y')
