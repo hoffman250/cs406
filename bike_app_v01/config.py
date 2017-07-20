@@ -13,8 +13,6 @@ class Config:
 	MAIL_SUBJECT_PREFIX = '[Bike Demo App]'
 	MAIL_SENDER = 'Admin <hoffmbri@gmx.com>'
 	ADMIN = os.environ.get('ADMIN')
-	POSTS_PER_PAGE = 20
-	FOLLOWERS_PER_PAGE = 50
 
 	@staticmethod
 	def init_app(app):

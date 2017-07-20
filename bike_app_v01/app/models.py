@@ -18,7 +18,7 @@ class User(UserMixin, db.Model):
 	confirmed = db.Column(db.Boolean, default=False)
 	first_name = db.Column(db.String(64))
 
-	@staticmethod
+	@staticmethod     
 	def generate_fake(count=100):
 		from sqlalchemy.exc import IntegrityError
 		from random import seed
