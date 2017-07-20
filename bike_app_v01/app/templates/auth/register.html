@@ -8,7 +8,7 @@
 	<h1>Customer Information</h1>
 </div>
 <div class="col-md-4">
-	<legend>Purchase Information</legend>
+	<legend>Personal Information</legend>
 
 	<br>{{ form.first_name.label }}
     {{ form.first_name }}</br>
@@ -26,6 +26,21 @@
 	{{ form.state }}</br>
 	<br>{{ form.zip_code.label }}
     {{ form.zip_code }}</br>
+</div>
+<div class="col-md-4">
+	<legend>Rider Information</legend>
+	<br>{{ form.height.label }}
+	{{ form.height }}</br>
+	<br>{{ form.weight.label }}
+    {{ form.weight }}</br>
+    <br>{{ form.skill_level.label }}
+	{{ form.skill_level }}</br>
+	<br>{{ form.style.label }}
+    {{ form.style }}</br>
+    <br>{{ form.gender.label }}
+	{{ form.gender }}</br>
+	<br>{{ form.dob.label }}
+    {{ form.dob }}</br>
 </div>
 <div class="col-md-4">
   {{ form.submit }}
