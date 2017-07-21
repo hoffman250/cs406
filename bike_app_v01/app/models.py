@@ -17,6 +17,17 @@ class User(UserMixin, db.Model):
 	password_hash = db.Column(db.String(128))
 	confirmed = db.Column(db.Boolean, default=False)
 	first_name = db.Column(db.String(64))
+	last_name = db.Column(db.String(64))
+	phone = db.Column(db.Integer)
+	address = db.Column(db.String(64), unique=True)
+	city = db.Column(db.String(64))
+	state = db.Column(db.String(64))
+	zip_code = db.Column(db.Integer)
+	height = db.Column(db.Integer)
+	weight = db.Column(db.Integer)
+	skill_level = db.Column(db.String(64))
+	style = db.Column(db.String(64))
+	gender = db.Column(db.String(64))
 
 	@staticmethod     
 	def generate_fake(count=100):
@@ -106,7 +117,7 @@ class User(UserMixin, db.Model):
 	def ping(self):
 		self.last_seen = datetime.utcnow()
 		db.session.add(self)
-		
+
 	def __repr__(self):
 		return '<User %r>' % self.username
 

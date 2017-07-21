@@ -47,7 +47,19 @@ def register():
 		user = User(email=form.email.data,
 					username=form.username.data,
 					password=form.password.data,
-					first_name=form.first_name.data)
+					first_name=form.first_name.data,
+					last_name=form.last_name.data,
+					phone=form.phone.data,
+					address=form.address.data,
+					city=form.city.data,
+					state=form.state.data,
+					zip_code=form.zip_code.data,
+					height=form.height.data,
+					weight=form.weight.data,
+					skill_level=form.skill_level.data,
+					style=form.style.data,
+					gender=form.gender.data
+					)
 		db.session.add(user)
 		db.session.commit()
 		token = user.generate_confirmation_token()
