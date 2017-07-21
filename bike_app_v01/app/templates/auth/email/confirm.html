@@ -1,0 +1,12 @@
+Dear <b>{{ user.username }}</b> , 
+
+Thank you for registering with Bend Bike Demo Reservations!
+
+To confirm your account, click on the link below:
+
+<b>{{ url_for('auth.confirm', token=token, _external=True) }}</b>
+
+Sincerely,
+BBDR
+
+Do not reply to this email
