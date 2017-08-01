@@ -18,16 +18,11 @@ class User(UserMixin, db.Model):
 	confirmed = db.Column(db.Boolean, default=False)
 	first_name = db.Column(db.String(64))
 	last_name = db.Column(db.String(64))
-	phone = db.Column(db.Integer)
+	# phone = db.Column(db.Integer)
 	address = db.Column(db.String(64), unique=True)
 	city = db.Column(db.String(64))
 	state = db.Column(db.String(64))
-	zip_code = db.Column(db.Integer)
-	height = db.Column(db.Integer)
-	weight = db.Column(db.Integer)
-	skill_level = db.Column(db.String(64))
-	style = db.Column(db.String(64))
-	gender = db.Column(db.String(64))
+	# zip_code = db.Column(db.Integer)
 
 	@staticmethod     
 	def generate_fake(count=100):
