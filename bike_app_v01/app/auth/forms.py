@@ -37,7 +37,6 @@ class RegistrationForm(FlaskForm):
       											('63', '5\'3'),
       											])
 	weight = TextAreaField('Weight')
-	# submit = SubmitField('Purchase')
 	skill_level = SelectField('Skill Level', choices = [('nov', 'novice'), 
       											('int', 'intermediate'),
       											('adv', 'advanced'),

@@ -8,12 +8,12 @@ from flask_pagedown.fields import PageDownField
 
 
 class PurchaseForm(FlaskForm):
-	first_name = StringField('First Name', validators=[Required()])
-	last_name = StringField('Last Name', validators=[Required()])
-	email = StringField('Email', validators=[Required(), Length(1, 64), Email()])
-	phone = TelField(validators=[Required()])
-	address = TextAreaField('Address', validators=[Required()])
-	city = StringField('City', validators=[Required()])
-	state = SelectField('State', choices = [('AK', 'Alaska'), 
-      ('Al', 'Alabama')])
-	zip_code = IntegerField('Zip', validators=[Required(), Length(5)])
+	credit_card = SelectField('Credit Card Type', choices = [('visa', 'Visa'), 
+      ('mastercard', 'Master Card'), ('amex', 'American Express')])
+	credit_card_number = StringField('Credit Card Number', validators=[
+		Required(), Length(16), Regexp('^[0-9]*$', 0,
+			'Credit card number must only contain numbers')])
+	ccv = StringField('CCV Number', validators=[
+		Required(), Length(3), Regexp('^[0-9]*$', 0,
+			'CCV must only contain numbers')])
+	submit = SubmitField('Purchase')

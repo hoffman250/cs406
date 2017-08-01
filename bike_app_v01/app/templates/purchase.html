@@ -8,24 +8,18 @@
 	<h1>Customer Information</h1>
 </div>
 <div class="col-md-4">
-	<legend>Purchase Information</legend>
+	<legend>1.  Review Your Reservation</legend>
+	<br>Santa Cruz</br>
 
-	<br>{{ form.first_name.label }}
-    {{ form.first_name }}</br>
-    <br>{{ form.last_name.label }}
-    {{ form.last_name }}</br>
-    <br>{{ form.email.label }}
-	{{ form.email }}</br>
-	<br>{{ form.phone.label }}
-    {{ form.phone }}</br>
-	<br>{{ form.address.label }}
-    {{ form.address }}</br>
-    <br>{{ form.city.label }}
-    {{ form.city }}</br>
-    <br>{{ form.state.label }}
-	{{ form.state }}</br>
-	<br>{{ form.zip_code.label }}
-    {{ form.zip_code }}</br>
+</div>
+<div class="col-md-4">
+    <legend>2. Payment Method</legend>
+    <br>{{ form.credit_card.label }}
+    {{ form.credit_card }}</br>
+    <br>{{ form.credit_card_number.label }}
+    {{ form.credit_card_number }}</br>
+    <br>{{ form.ccv.label }}
+    {{ form.ccv }}</br>
 </div>
 <div class="col-md-4">
   {{ form.submit }}

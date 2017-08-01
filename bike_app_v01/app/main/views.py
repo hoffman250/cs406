@@ -26,4 +26,12 @@ def faq():
 @main.route('/purchase', methods=['GET', 'POST'])
 def purchase():
 	form = PurchaseForm()
+	if form.validate_on_submit():
+		flash('A confirmation email will be sent to you')
+		# return redirect(url_for('main.order_confirmation'))
+		return render_template('order_confirmation.html')
 	return render_template('purchase.html', form=form)
+
+@main.route('/order_confirmation', methods=['GET', 'POST'])
+def order_confirmation():
+	return render_template('order_confirmation.html')
