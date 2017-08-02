@@ -125,6 +125,15 @@ class AnonymousUser(AnonymousUserMixin):
 	def can(self, permissions):
 		return False
 
+class Bike(UserMixin, db.Model):
+	__tablename__ = 'bikes'
+	id = db.Column(db.Integer, primary_key=True)
+	brand = db.Column(db.String(64), index=True)
+	model = db.Column(db.String(64), index=True)
+	style = db.Column(db.String(64))
+	rate = db.Column(db.String(64))
+
+
 login_manager.anonymous_user = AnonymousUser
 
 @login_manager.user_loader
