@@ -18,7 +18,20 @@ def about():
 
 @main.route('/browse_bikes', methods=['GET', 'POST'])
 def browse_bikes():
-	return render_template('browse_bikes.html')
+	bike = Bike.query.all()
+	# # b.db = connect.db()
+	# # curr = db.execute('SELECT * from bikes')
+	# Bikes = [dict(id=row[0],
+	# 			brand=row[1],
+	# 			model=row[2],
+	# 			style=row[3],
+	# 			rate=row[4])
+	# 			for row in curr.fetchall()]
+	# b.db.close()
+	#return redirect(url_for('main.browse_bikes'))
+	for temp in bike:
+		print temp.brand
+	return render_template('browse_bikes.html', bike=bike)
 
 
 @main.route('/participating_dealers', methods=['GET', 'POST'])
