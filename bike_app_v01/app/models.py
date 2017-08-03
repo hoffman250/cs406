@@ -125,6 +125,7 @@ class AnonymousUser(AnonymousUserMixin):
 	def can(self, permissions):
 		return False
 
+
 class Bike(UserMixin, db.Model):
 	__tablename__ = 'bikes'
 	id = db.Column(db.Integer, primary_key=True)
@@ -132,6 +133,14 @@ class Bike(UserMixin, db.Model):
 	model = db.Column(db.String(64), index=True)
 	style = db.Column(db.String(64))
 	rate = db.Column(db.String(64))
+
+
+class Purchase(UserMixin, db.Model):
+	__tablename__ = 'purchases'
+	id = db.Column(db.Integer, primary_key=True)
+	credit_card = db.Column(db.String(64), index=True)
+	credit_card_number = db.Column(db.String(64), index=True)
+	ccv = db.Column(db.String(64))
 
 
 login_manager.anonymous_user = AnonymousUser

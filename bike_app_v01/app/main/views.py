@@ -2,7 +2,7 @@ from flask import render_template, redirect, url_for, flash, request, \
 	current_app, make_response
 from . import main
 from .forms import PurchaseForm, BikeForm
-from ..models import Bike
+from ..models import Bike, Purchase
 from .. import db
 
 
@@ -36,13 +36,16 @@ def faq():
 def purchase(bike_id):
 	form = PurchaseForm()
 	bike_selected = Bike.query.filter_by(id=bike_id).first()
-	print bike_selected.brand	# debug only
-	print bike_selected.model   # debug only
-	print "Rate: $",bike_selected.rate  # debug only
 	if form.validate_on_submit():
 		flash('A confirmation email will be sent to you')
-		# return redirect(url_for('main.order_confirmation'))
-		return render_template('order_confirmation.html')
+		purchase = Purchase(credit_card = form.credit_card.data,
+							credit_card_number = form.credit_card_number.data,
+							ccv = form.ccv.data
+							)
+		db.session.add(Purchase)
+		db.session.commit()
+		return redirect(url_for('main.order_confirmation'))
+		# return render_template('order_confirmation.html')
 	return render_template('purchase.html', bike_selected=bike_selected, form=form)
 
 
