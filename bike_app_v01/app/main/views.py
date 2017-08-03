@@ -19,18 +19,6 @@ def about():
 @main.route('/browse_bikes', methods=['GET', 'POST'])
 def browse_bikes():
 	bike = Bike.query.all()
-	# # b.db = connect.db()
-	# # curr = db.execute('SELECT * from bikes')
-	# Bikes = [dict(id=row[0],
-	# 			brand=row[1],
-	# 			model=row[2],
-	# 			style=row[3],
-	# 			rate=row[4])
-	# 			for row in curr.fetchall()]
-	# b.db.close()
-	#return redirect(url_for('main.browse_bikes'))
-	for temp in bike:
-		print temp.brand
 	return render_template('browse_bikes.html', bike=bike)
 
 
@@ -44,15 +32,18 @@ def faq():
 	return render_template('faq.html')
 
 
-@main.route('/purchase', methods=['GET', 'POST'])
-def purchase():
-	flash("this is dumb")
+@main.route('/purchase/<bike_id>', methods=['GET', 'POST'])
+def purchase(bike_id):
 	form = PurchaseForm()
+	bike_selected = Bike.query.filter_by(id=bike_id).first()
+	print bike_selected.brand	# debug only
+	print bike_selected.model   # debug only
+	print "Rate: $",bike_selected.rate  # debug only
 	if form.validate_on_submit():
 		flash('A confirmation email will be sent to you')
 		# return redirect(url_for('main.order_confirmation'))
 		return render_template('order_confirmation.html')
-	return render_template('purchase.html', form=form)
+	return render_template('purchase.html', bike_selected=bike_selected, form=form)
 
 
 @main.route('/order_confirmation', methods=['GET', 'POST'])

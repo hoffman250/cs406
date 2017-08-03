@@ -9,17 +9,22 @@
 </div>
 <div class="col-md-4">
 	<legend>1.  Review Your Reservation</legend>
-	<br>Santa Cruz</br>
-
+	<div>
+    	<strong>Brand:</strong> {{ bike_selected.brand }} <br>
+    	<strong>Model:</strong> {{ bike_selected.model }} <br>
+    	<strong>Style:</strong> {{ bike_selected.style }} <br>
+    	<strong>Rate:</strong> {{ bike_selected.rate }} <br>
+    	<hr></hr>
+    </div>
 </div>
 <div class="col-md-4">
-    <legend>2. Payment Method</legend>
-    <br>{{ form.credit_card.label }}
-    {{ form.credit_card }}</br>
-    <br>{{ form.credit_card_number.label }}
-    {{ form.credit_card_number }}</br>
-    <br>{{ form.ccv.label }}
-    {{ form.ccv }}</br>
+	<legend>2. Payment Method</legend>
+	<br>{{ form.credit_card.label }}
+	{{ form.credit_card }}</br>
+	<br>{{ form.credit_card_number.label }}
+	{{ form.credit_card_number }}</br>
+	<br>{{ form.ccv.label }}
+	{{ form.ccv }}</br>
 </div>
 <div class="col-md-4">
   {{ form.submit }}
