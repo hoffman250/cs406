@@ -42,10 +42,9 @@ def purchase(bike_id):
 							credit_card_number = form.credit_card_number.data,
 							ccv = form.ccv.data
 							)
-		db.session.add(Purchase)
+		db.session.add(purchase)
 		db.session.commit()
 		return redirect(url_for('main.order_confirmation'))
-		# return render_template('order_confirmation.html')
 	return render_template('purchase.html', bike_selected=bike_selected, form=form)
 
 

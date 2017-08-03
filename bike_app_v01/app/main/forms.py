@@ -5,6 +5,7 @@ from wtforms.validators import DataRequired, Length, Email, Regexp, EqualTo
 from wtforms import ValidationError
 from wtforms.fields.html5 import TelField
 from flask_pagedown.fields import PageDownField
+from ..models import Bike
 
 
 class PurchaseForm(FlaskForm):
