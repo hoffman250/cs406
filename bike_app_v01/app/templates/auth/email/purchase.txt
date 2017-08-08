@@ -1,0 +1,12 @@
+Dear {{ current_cduser.username }}, 
+
+Thank you for your Reservation!
+
+You resevered:
+
+
+
+Sincerely,
+BBDR
+
+Do not reply to this email
