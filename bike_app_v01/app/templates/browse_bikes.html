@@ -5,8 +5,7 @@
 
 {% block page_content %}
 <div class="page-header">
-	<h1>Browse some bikes</h1>
-	<h3>Look at our fine wares...</h3>
+	<h1>Available Demo Bikes</h1>
 	<div class="navbar-header">
 		<button type="button" class="navbar-toggle" data-toggle="collapse" data-target=".navbar-collapse">
 			<span class="sr-only">Toggle navigation</span>
@@ -23,7 +22,7 @@
     	<strong>Brand:</strong> {{ temp.brand }} <br>
     	<strong>Model:</strong> {{ temp.model }} <br>
     	<strong>Style:</strong> {{ temp.style }} <br>
-    	<strong>Rate:</strong> {{ temp.rate }} <br>
+    	<strong>Rate:</strong> ${{ temp.rate }} <br>
     	<a href="{{ url_for('main.purchase', bike_id = temp.id) }}">Reserve this bike?</a>
     	<hr></hr>
     </div>

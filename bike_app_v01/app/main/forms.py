@@ -1,6 +1,5 @@
 from flask_wtf import FlaskForm
-from wtforms import StringField, SubmitField, TextAreaField, BooleanField, SelectField, \
-	IntegerField, RadioField, DateTimeField
+from wtforms import StringField, SubmitField, SelectField
 from wtforms.validators import DataRequired, Length, Email, Regexp, EqualTo
 from wtforms import ValidationError
 from wtforms.fields.html5 import TelField
@@ -22,8 +21,8 @@ class BikeForm(FlaskForm):
 		DataRequired()])
 	model = StringField('Model', validators=[
 		DataRequired()])
-	style = SelectField('Style', choices = [('mtn', 'Mountain'), 
-      ('road', 'Road'), ('cruise', 'Cruiser')])
+	style = SelectField('Style', choices = [('Mountain', 'mtn'), 
+      ('Road', 'road'), ('Cruise', 'cruiser')])
 	rate = StringField('Rate', validators=[
 		DataRequired()])
 	submit = SubmitField('Add Bike')
