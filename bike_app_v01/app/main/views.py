@@ -50,7 +50,6 @@ def purchase(bike_id):
 		db.session.commit()
 		send_email(user_email, 'Thanks for your email', 'auth/email/purchase',
 			user_email=user_email)
-		flash('A confirmation email will be sent to you')
 		return redirect(url_for('main.order_confirmation'))
 	return render_template('purchase.html', bike_selected=bike_selected, form=form)
 

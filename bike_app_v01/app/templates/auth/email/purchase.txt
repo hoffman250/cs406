@@ -1,4 +1,4 @@
-Dear {{ current_cduser.username }}, 
+Dear {{ current_user.username }}, 
 
 Thank you for your Reservation!
 
