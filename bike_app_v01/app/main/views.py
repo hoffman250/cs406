@@ -49,7 +49,7 @@ def purchase(bike_id):
 		db.session.add(purchase)
 		db.session.commit()
 		send_email(user_email, 'Thanks for your reservation!', 'auth/email/purchase',
-			user_email=user_email)
+			user_email=user_email, bike_selected=bike_selected, form=form)
 		return redirect(url_for('main.order_confirmation'))
 	return render_template('purchase.html', bike_selected=bike_selected, form=form)
 

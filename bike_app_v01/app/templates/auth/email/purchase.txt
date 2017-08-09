@@ -2,9 +2,6 @@ Dear {{ current_user.username }},
 
 Thank you for your Reservation!
 
-You resevered:
-
-
 
 Sincerely,
 BBDR

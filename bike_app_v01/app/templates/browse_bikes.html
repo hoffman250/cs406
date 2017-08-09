@@ -23,6 +23,7 @@
     	<strong>Model:</strong> {{ temp.model }} <br>
     	<strong>Style:</strong> {{ temp.style }} <br>
     	<strong>Rate:</strong> ${{ temp.rate }} <br>
+    	<img src="{{url_for('static', filename='{model}.png'.format(model=temp.model))}}" style="width:200px;height:108px;">
     	<a href="{{ url_for('main.purchase', bike_id = temp.id) }}">Reserve this bike?</a>
     	<hr></hr>
     </div>
