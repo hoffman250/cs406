@@ -6,6 +6,7 @@ from ..models import User
 from ..email import send_email
 from .forms import LoginForm, RegistrationForm
 
+# function to check that user has confirmed their registration
 @auth.before_app_request
 def before_request():
 	if current_user.is_authenticated:
@@ -16,12 +17,14 @@ def before_request():
 				and request.endpoint != 'static':
 			return redirect(url_for('auth.unconfirmed'))
 
+# route to deal with unconfirmed user
 @auth.route('/unconfirmed')
 def unconfirmed():
 	if current_user.is_anonymous or current_user.confirmed:
 		return redirect(url_for('main.index'))
 	return render_template('auth/unconfirmed.html')
 
+# route for user login
 @auth.route('/login', methods=['GET', 'POST'])
 def login():
 	form = LoginForm()
