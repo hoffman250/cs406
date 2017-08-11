@@ -75,8 +75,9 @@ class User(UserMixin, db.Model):
 		self.last_seen = datetime.utcnow()
 		db.session.add(self)
 
-	# def __repr__(self):
-	# 	return '<User %r>' % self.username
+	# provides string output of class (used for debug)
+	def __repr__(self):
+		return '<User %r>' % self.username
 
 # Bike table
 # creates table to hold bike attributes
@@ -103,6 +104,7 @@ class AnonymousUser(AnonymousUserMixin):
 
 login_manager.anonymous_user = AnonymousUser
 
+# function queries User table, returns user's id 
 @login_manager.user_loader
 def load_user(user_id):
 	return User.query.get(int(user_id))

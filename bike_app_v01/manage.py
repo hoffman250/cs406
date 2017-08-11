@@ -1,3 +1,7 @@
+# manage.py
+# file contains code for command line access and unit testing functionality
+
+
 #!/user/bin/env python
 import os
 from app import create_app, db
