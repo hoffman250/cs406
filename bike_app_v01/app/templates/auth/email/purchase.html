@@ -1,9 +1,16 @@
-Dear <b>{{ current_user.username }}</b> , 
+Dear <b>{{ current_user.username }}</b>, 
 
-Thank you for your Reservation!
+<div>
+<br>Thank you for your Reservation!
+<br>
+<br> Reservation details:
+<br> Make: <b>{{ bike_selected.brand }}</b>
+<br> Model: <b>{{ bike_selected.model }}</b>
+<br> Rate: <b>${{ bike_selected.rate }}</b>
+</div>
 
 
-Sincerely,
-BBDR
+<br>Sincerely,
+<br>BBDR
 
-Do not reply to this email
+<br>Do not reply to this email

@@ -1,7 +1,10 @@
 Dear {{ current_user.username }}, 
 
 Thank you for your Reservation!
-
+Reservation details:
+Make: {{ bike_selected.brand }}
+Model: {{ bike_selected.model }}
+Rate: {{ bike_selected.rate }}
 
 Sincerely,
 BBDR
