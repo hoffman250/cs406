@@ -1,5 +1,6 @@
 # manage.py
 # file contains code for command line access and unit testing functionality
+# code structure courtesy of Flask Web Developement, Miguel Grinberg, modified as needed
 
 
 #!/user/bin/env python
@@ -13,6 +14,7 @@ app = create_app(os.getenv('CONFIG') or 'default')
 manager = Manager(app)
 migrate = Migrate(app, db)
 
+# add commmands for running shell and database
 def make_shell_context():
 	return dict(app=app, db=db, User=User, Bike=Bike, Purchase=Purchase)
 manager.add_command("shell", Shell(make_context=make_shell_context))

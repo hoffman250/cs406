@@ -1,3 +1,7 @@
+# templates/__init__.py
+# initialization file for template files
+# code courtesy of Flask Web Developement, Miguel Grinberg
+
 from flask import Flask
 from flask_bootstrap import Bootstrap
 from flask_mail import Mail

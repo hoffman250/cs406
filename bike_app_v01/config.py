@@ -1,6 +1,6 @@
 # config.py
 # file contains configuration data for program
-# code courtesy of Flask Web Developement, Miguel Grinberg, modified as needed
+# code structure courtesy of Flask Web Developement, Miguel Grinberg, modified as needed
 
 
 import os
